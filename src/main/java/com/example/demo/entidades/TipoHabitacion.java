@@ -14,14 +14,14 @@ public class TipoHabitacion {
     private String Descripcion;
 
     @Column(name = "CantidadCamas")
-    private long CantidadCamas;
+    private Long CantidadCamas;
 
     @Column(name = "MaximoPersonas")
-    private long MaximoPersonas;
+    private Long MaximoPersonas;
 
     public TipoHabitacion() {}
 
-    public TipoHabitacion(long maximoPersonas, long cantidadCamas, String descripcion, Long IDTipoHabitacion) {
+    public TipoHabitacion(Long maximoPersonas, Long cantidadCamas, String descripcion, Long IDTipoHabitacion) {
         MaximoPersonas = maximoPersonas;
         CantidadCamas = cantidadCamas;
         Descripcion = descripcion;
@@ -44,19 +44,19 @@ public class TipoHabitacion {
         Descripcion = descripcion;
     }
 
-    public long getCantidadCamas() {
+    public Long getCantidadCamas() {
         return CantidadCamas;
     }
 
-    public void setCantidadCamas(long cantidadCamas) {
+    public void setCantidadCamas(Long cantidadCamas) {
         CantidadCamas = cantidadCamas;
     }
 
-    public long getMaximoPersonas() {
+    public Long getMaximoPersonas() {
         return MaximoPersonas;
     }
 
-    public void setMaximoPersonas(long maximoPersonas) {
+    public void setMaximoPersonas(Long maximoPersonas) {
         MaximoPersonas = maximoPersonas;
     }
 }
