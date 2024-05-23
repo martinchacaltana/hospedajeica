@@ -51,7 +51,7 @@ public class ControladorHabitacion {
         return "redirect:/habitacion";
     }
 
-    @GetMapping("/habitacion/tipohabitacion")
+    @GetMapping("/habitacion/nuevo")
     public String mostrarFormHabitacion(Model model) {
         Habitacion habitacion = new Habitacion();
         List<TipoHabitacion> tipoHabitacion = tipoHabitacionDao.obtenerTodos();

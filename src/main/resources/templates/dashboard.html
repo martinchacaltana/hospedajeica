@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="/fragments/head :: head"></head>
+<body>
+<div class="main-wrapper">
+    <div th:replace="/fragments/header :: div"></div>
+    <div th:replace="/fragments/sidebar :: div"></div>
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-sm-12 mt-5">
+                        <h3 class="page-title mt-3">Bienvenido al Hospedaje Ica</h3>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card board1 fill">
+                        <div class="card-body">
+                            <div class="dash-widget-header">
+                                <div>
+                                    <h3 class="card_widget_header">12</h3>
+                                    <h6 class="text-muted">Total de reservas</h6> </div>
+                                <div class="ml-auto mt-md-3 mt-lg-0"> <span class="opacity-7 text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="#009688" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-plus">
+									<path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+									<circle cx="8.5" cy="7" r="4"></circle>
+									<line x1="20" y1="8" x2="20" y2="14"></line>
+									<line x1="23" y1="11" x2="17" y2="11"></line>
+									</svg></span> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card board1 fill">
+                        <div class="card-body">
+                            <div class="dash-widget-header">
+                                <div>
+                                    <h3 class="card_widget_header">2</h3>
+                                    <h6 class="text-muted">Habitaciones disponibles</h6> </div>
+                                <div class="ml-auto mt-md-3 mt-lg-0"> <span class="opacity-7 text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="#009688" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign">
+									<line x1="12" y1="1" x2="12" y2="23"></line>
+									<path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+									</svg></span> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 d-flex">
+                    <div class="card card-table flex-fill">
+                        <div class="card-header">
+                            <h4 class="card-title float-left mt-2">Reserva</h4>
+                            <button type="button" class="btn btn-primary float-right veiwbutton">Mostrar todo</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-center">
+                                    <thead>
+                                    <tr>
+                                        <th>Reserva ID</th>
+                                        <th>Nombre</th>
+                                        <th>Correo electronico</th>
+                                        <th>DNI</th>
+                                        <th class="text-center">Tipo de habitacion</th>
+                                        <th>Numero</th>
+                                        <th>Estado</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <div>BKG-0001</div>
+                                        </td>
+                                        <td>Tommy</td>
+                                        <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3743585a5a4e55524559565b77524f565a475b521954585a">[email&#160;protected]</a></td>
+                                        <td>12414786454545</td>
+                                        <td class="text-center">Doble</td>
+                                        <td class="text-left">
+                                            <div>631-254-6480</div>
+                                        </td>
+                                        <td class="text-left"> <span class="badge badge-pill bg-success inv-badge">INACTIVO</span> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap">
+                                            <div>BKG-0002</div>
+                                        </td>
+                                        <td class="text-nowrap">Ellen</td>
+                                        <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="89fbe0eae1e8fbedebfbe6ebfafdc9ecf1e8e4f9e5eca7eae6e4">[email&#160;protected]</a></td>
+                                        <td>5456223232322</td>
+                                        <td class="text-center">Doble</td>
+                                        <td class="text-left">
+                                            <div>830-468-1042</div>
+                                        </td>
+                                        <td class="text-left"> <span class="badge badge-pill bg-success inv-badge">INACTIVO</span> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap">
+                                            <div>BKG-0003</div>
+                                        </td>
+                                        <td class="text-nowrap">Corina</td>
+                                        <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="76131a1a1318021e1f1a1a36130e171b061a135815191b">[email&#160;protected]</a></td>
+                                        <td>454543232625</td>
+                                        <td class="text-center">Individual</td>
+                                        <td class="text-left">
+                                            <div>508-335-5531</div>
+                                        </td>
+                                        <td class="text-left"> <span class="badge badge-pill bg-success inv-badge">INACTIVO</span> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap">
+                                            <div>BKG-0004</div>
+                                        </td>
+                                        <td class="text-nowrap">Carolyn</td>
+                                        <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="50333f22393e313b353c23352910373d31393c7e333f3d">[email&#160;protected]</a></td>
+                                        <td>2368989562621</td>
+                                        <td class="text-center">Doble</td>
+                                        <td class="text-left">
+                                            <div>262-260-1170</div>
+                                        </td>
+                                        <td class=text-left> <span class="badge badge-pill bg-success inv-badge">INACTIVO</span> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap">
+                                            <div>BKG-0005</div>
+                                        </td>
+                                        <td class="text-nowrap">Denise</td>
+                                        <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1c7f7d6e73706572707d72795c7b717d7570327f7371">[email&#160;protected]</a></td>
+                                        <td>3245455582287</td>
+                                        <td class="text-center">Individual</td>
+                                        <td class="text-left">
+                                            <div>570-458-0070</div>
+                                        </td>
+                                        <td class="text-left"> <span class="badge badge-pill bg-success inv-badge">INACTIVO</span> </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-cfasync="false" th:src="@{../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js}"></script>
+<script th:src="@{/assets/js/jquery-3.5.1.min.js}"></script>
+<script th:src="@{/assets/js/popper.min.js}"></script>
+<script th:src="@{/assets/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+<script th:src="@{/assets/plugins/raphael/raphael.min.js}"></script>
+<script th:src="@{/assets/plugins/morris/morris.min.js}"></script>
+<script th:src="@{/assets/js/chart.morris.js}"></script>
+<script th:src="@{/assets/js/script.js}"></script>
+
+</body>
+
+</html>

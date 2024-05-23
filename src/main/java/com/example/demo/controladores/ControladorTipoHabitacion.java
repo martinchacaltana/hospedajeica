@@ -44,7 +44,7 @@ public class ControladorTipoHabitacion {
         tipoHabitacionDao.actualizarTipoHabitacion(tipoExistente);
         return "redirect:/tipohabitacion";
     }
-    @GetMapping("/tipohabitacion/nuevotipohabitacion")
+    @GetMapping("/tipohabitacion/nuevo")
     public String mostrarFormTipoHabitacion(Model model){
         TipoHabitacion tipoHabitacion = new TipoHabitacion();
         model.addAttribute("tipoHabitacion",tipoHabitacion);
