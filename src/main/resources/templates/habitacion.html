@@ -11,7 +11,7 @@
                 <div class="row align-items-center">
                     <div class="col">
                         <div class="mt-5">
-                            <h4 class="card-title float-left mt-2">Habitaciones</h4> <a th:href="@{/habitacion/nuevo}" class="btn btn-primary float-right veiwbutton">Anadir Habitacion</a> </div>
+                            <h4 class="card-title float-left mt-2">Habitaciones</h4> <a th:href="@{/habitacion/form/0}" class="btn btn-primary float-right veiwbutton">Anadir Habitacion</a> </div>
                     </div>
                 </div>
             </div>
@@ -31,14 +31,14 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr th:each="habitacion : ${habitacion}">
+                                    <tr th:each="habitacion : ${habitaciones}" th:classappend="${habitacion.disponibilidad == true} ? 'table-success' : 'table-danger'">
                                         <td th:text="${habitacion.IDHabitacion}"></td>
                                         <td th:text="${habitacion.numeroHabitacion}"></td>
                                         <td th:text="${habitacion.tipoHabitacion.descripcion}"></td>
                                         <td th:text="${habitacion.disponibilidad} == true ? 'Disponible' : 'No Disponible'"></td>
                                         <td class="text-center">
                                             <div class="dropdown dropdown-action"> <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v ellipse_color"></i></a>
-                                                <div class="dropdown-menu dropdown-menu-right"> <a th:href="@{/habitacion/editar/{id}(id=${habitacion.IDHabitacion})}" class="dropdown-item" href="edit-customer.html"><i class="fas fa-pencil-alt m-r-5"></i> EDITAR</a> <a th:href="@{/habitacion/{id}(id=${habitacion.IDHabitacion})}" class="dropdown-item" href="edit-customer.html"><i class="fas fa-pencil-alt m-r-5"></i> BORRAR</a> </div>
+                                                <div class="dropdown-menu dropdown-menu-right"> <a th:href="@{/habitacion/form/{id}(id=${habitacion.IDHabitacion})}" class="dropdown-item" href="edit-customer.html"><i class="fas fa-pencil-alt m-r-5"></i> Editar</a> <a th:href="@{/habitacion/{id}(id=${habitacion.IDHabitacion})}" class="dropdown-item" href="edit-customer.html"><i class="fas fa-pencil-alt m-r-5"></i>Borrar</a></div>
                                             </div>
                                         </td>
                                     </tr>

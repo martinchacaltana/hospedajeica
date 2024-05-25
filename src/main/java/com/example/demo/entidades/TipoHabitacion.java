@@ -1,62 +1,29 @@
 package com.example.demo.entidades;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Table(name="TipoHabitacion")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class TipoHabitacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IDTipoHabitacion")
-    private Long IDTipoHabitacion;
-
-    @Column(name = "Descripcion", nullable = false,length = 50)
+    private long IDTipoHabitacion;
     private String Descripcion;
+    private int CantidadCamas;
+    private int MaximoPersonas;
+    private boolean activo=true;
 
-    @Column(name = "CantidadCamas")
-    private Long CantidadCamas;
+    @OneToMany(mappedBy = "tipoHabitacion")
+    private List<Habitacion> habitaciones;
 
-    @Column(name = "MaximoPersonas")
-    private Long MaximoPersonas;
-
-    public TipoHabitacion() {}
-
-    public TipoHabitacion(Long maximoPersonas, Long cantidadCamas, String descripcion, Long IDTipoHabitacion) {
-        MaximoPersonas = maximoPersonas;
-        CantidadCamas = cantidadCamas;
-        Descripcion = descripcion;
-        this.IDTipoHabitacion = IDTipoHabitacion;
-    }
-
-    public Long getIDTipoHabitacion() {
-        return IDTipoHabitacion;
-    }
-
-    public void setIDTipoHabitacion(Long IDTipoHabitacion) {
-        this.IDTipoHabitacion = IDTipoHabitacion;
-    }
-
-    public String getDescripcion() {
-        return Descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        Descripcion = descripcion;
-    }
-
-    public Long getCantidadCamas() {
-        return CantidadCamas;
-    }
-
-    public void setCantidadCamas(Long cantidadCamas) {
-        CantidadCamas = cantidadCamas;
-    }
-
-    public Long getMaximoPersonas() {
-        return MaximoPersonas;
-    }
-
-    public void setMaximoPersonas(Long maximoPersonas) {
-        MaximoPersonas = maximoPersonas;
-    }
 }
