@@ -25,5 +25,7 @@ public class Habitacion {
 
     private boolean disponibilidad;
 
+    private double precio;
+
     private boolean activo=true;
 }

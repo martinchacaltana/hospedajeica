@@ -20,7 +20,7 @@
                     <ul class="submenu_class" style="display: none;">
                         <li><a th:href="@{/habitacion}">Todas las Habitaciones </a></li>
                         <li><a th:href="@{/tipohabitacion}">Tipos de habitaciones </a></li>
-                        <li><a th:href="@{/habitacion/nuevo}"> Anadir habitacion </a></li>
+                        <li><a th:href="@{/habitacion/form/0}"> Anadir habitacion </a></li>
                     </ul>
                 </li>
                 <li class="submenu"> <a href="#"><i class="fas fa-tags"></i> <span> Resenas </span> <span class="menu-arrow"></span></a>
@@ -30,8 +30,8 @@
                 </li>
                 <li class="submenu"> <a href="#"><i class="fas fa-credit-card"></i> <span> Documentos </span> <span class="menu-arrow"></span></a>
                     <ul class="submenu_class" style="display: none;">
-                        <li><a href="../static/all-metodopago.html">Todos los documentos</a></li>
-                        <li><a href="../static/add-metodopago.html"> Anadir documento</a></li>
+                        <li><a th:href="@{/documento}">Todos los documentos</a></li>
+                        <li><a th:href="@{/documento/form/0}"> Anadir documento</a></li>
                     </ul>
                 </li>
                 <li class="submenu"> <a href="#"><i class="far fa-file-alt"></i> <span> Empleados </span> <span class="menu-arrow"></span></a>

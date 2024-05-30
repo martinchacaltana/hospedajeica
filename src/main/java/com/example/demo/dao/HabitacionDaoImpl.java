@@ -1,9 +1,7 @@
 package com.example.demo.dao;
 
 import com.example.demo.entidades.Habitacion;
-import com.example.demo.entidades.TipoHabitacion;
 import com.example.demo.repositorio.HabitacionRepositorio;
-import com.example.demo.repositorio.TipoHabitacionRepositorio;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,6 +56,7 @@ public class HabitacionDaoImpl implements ServicioGenerico<Habitacion> {
                 habitacion.setNumeroHabitacion(entity.getNumeroHabitacion());
                 habitacion.setTipoHabitacion(entity.getTipoHabitacion());
                 habitacion.setDisponibilidad(entity.isDisponibilidad());
+                habitacion.setPrecio(entity.getPrecio());
                 return this.habitacionRepositorio.save(habitacion);
             }else{
                 throw new Exception("Habitacion no encontrada con id: " + id);            }
