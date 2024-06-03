@@ -21,18 +21,21 @@
                                 <div class="form-group">
                                     <label>Descripcion</label>
                                     <input class="form-control" type="text" th:field="*{descripcion}">
+                                    <div class="text-danger" th:if="${#fields.hasErrors('Descripcion')}" th:errors="*{Descripcion}"></div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Cantidad de camas</label>
-                                    <input class="form-control" type="text" th:field="*{cantidadCamas}">
+                                    <input class="form-control" type="number" th:field="*{cantidadCamas}">
+                                    <div class="text-danger" th:if="${#fields.hasErrors('CantidadCamas')}" th:errors="*{CantidadCamas}"></div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Maximo de personas</label>
-                                    <input class="form-control" type="text"  th:field="*{maximoPersonas}">
+                                    <input class="form-control" type="number"  th:field="*{maximoPersonas}">
+                                    <div class="text-danger" th:if="${#fields.hasErrors('MaximoPersonas')}" th:errors="*{MaximoPersonas}"></div>
                                 </div>
                             </div>
                         </div>

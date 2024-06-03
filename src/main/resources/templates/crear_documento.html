@@ -21,12 +21,14 @@
                                 <div class="form-group">
                                     <label>Nombre Documento</label>
                                     <input class="form-control" type="text" th:field="*{nombreDocumento}">
+                                    <div class="text-danger" th:if="${#fields.hasErrors('nombreDocumento')}" th:errors="*{nombreDocumento}"></div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Abreviatura</label>
                                     <input class="form-control" type="text" th:field="*{abreviatura}">
+                                    <div class="text-danger" th:if="${#fields.hasErrors('abreviatura')}" th:errors="*{abreviatura}"></div>
                                 </div>
                             </div>
                         </div>

@@ -21,7 +21,8 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Numero de habitacion</label>
-                                    <input class="form-control" type="text" th:field="*{numeroHabitacion}">
+                                    <input class="form-control" type="number" th:field="*{numeroHabitacion}">
+                                    <div class="text-danger" th:if="${#fields.hasErrors('numeroHabitacion')}" th:errors="*{numeroHabitacion}"></div>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -44,7 +45,8 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Precio</label>
-                                    <input class="form-control" type="text" th:field="*{precio}">
+                                    <input class="form-control" type="number" th:field="*{precio}">
+                                    <div class="text-danger" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}"></div>
                                 </div>
                             </div>
                         </div>

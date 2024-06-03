@@ -40,6 +40,7 @@ public class DocumentoImpl  implements ServicioGenerico<Documento>{
     }
 
     @Override
+    @Transactional
     public Documento guardar(Documento entity) throws Exception {
         try {
             Documento documento = this.documentoRepositorio.save(entity);

@@ -1,6 +1,5 @@
 package com.example.demo.dao;
 
-import com.example.demo.entidades.Habitacion;
 import com.example.demo.entidades.TipoHabitacion;
 import com.example.demo.repositorio.TipoHabitacionRepositorio;
 import jakarta.transaction.Transactional;
