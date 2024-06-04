@@ -13,6 +13,9 @@ public interface HabitacionRepositorio extends JpaRepository<com.example.demo.en
     @Query(value = "SELECT * FROM habitacion WHERE habitacion.activo=true", nativeQuery = true)
     List<Habitacion> findAllByActivo();
 
+    @Query(value = "SELECT * FROM habitacion WHERE habitacion.activo = true AND disponibilidad = true", nativeQuery = true)
+    List<Habitacion> findAllByActivoAndDisponibilidad();
+
     @Query(value = "SELECT * FROM habitacion WHERE habitacion.IDHabitacion = :id AND habitacion.activo = true", nativeQuery = true)
     Optional<Habitacion> findByIdAAndActivo(@Param("id") long IDHabitacion);
 }

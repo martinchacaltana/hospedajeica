@@ -41,7 +41,7 @@ public class ControladorReserva {
     public String nuevaReserva(Model model, @PathVariable("id") long id) {
         try {
             model.addAttribute("cliente", this.clienteImpl.listar());
-            model.addAttribute("habitacion", this.habitacionDaoImpl.findAllByActivo());
+            model.addAttribute("habitacion", this.habitacionDaoImpl.findAllByActivoAndDisponibilidad());
             if (id == 0) {
                 model.addAttribute("reserva", new Reserva());
             } else {
@@ -58,7 +58,7 @@ public class ControladorReserva {
             @PathVariable("id") long id) {
         try {
             model.addAttribute("cliente", this.clienteImpl.listar());
-            model.addAttribute("habitacion", this.habitacionDaoImpl.listar());
+            model.addAttribute("habitacion", this.habitacionDaoImpl.findAllByActivoAndDisponibilidad());
             if (result.hasErrors()) {
                 return "crear_reserva";
             }

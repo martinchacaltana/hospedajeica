@@ -1,154 +1,683 @@
 <!DOCTYPE html>
 <html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+
 <head>
-    <meta charset="UTF-8">
-    <title>Bienvenidos al Hospedaje Ica</title>
-    <link rel="stylesheet" th:href="@{/assets/css/footer.css}">
-    <link rel="stylesheet" th:href="@{/assets/css/encabezado.css}">
-    <link rel="stylesheet" th:href="@{/assets/css/styleIndex.css}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <title>Hospedaje integrador</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="assets/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="assets/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css1/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css1/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="/assets/css1/style.css" rel="stylesheet">
+    <link th:src="@{/assets/css1/style.css}">
 </head>
+
 <body>
-    <header class="header">
-        <div class="navbar">
-            <div class="nav-list">
-                <div class="nav-item"><a th:href="@{/informacion}">Información</a></div>
-                <div class="nav-item"><a th:href="@{/habitaciones}">Habitaciones</a></div>
-                <div class="logo">
-                    <img th:src="@{/assets/img/logo.png}" alt="Logo">
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Header Start -->
+        <div class="container-fluid bg-dark px-0">
+            <div class="row gx-0">
+                <div class="col-lg-3 bg-dark d-none d-lg-block">
+                    <a th:href="@{/}"
+                        class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                        <h1 class="m-0 text-primary text-uppercase">Hospedaje</h1>
+                    </a>
                 </div>
-                <div class="nav-item"><a th:href="@{/galeria}">Galería</a></div>
-                <div class="nav-item"><a th:href="@{/blog}">Blog</a></div>
-                <a th:href="@{/login}">
-                    <div class="user">
-                    <img th:src="@{/assets/img/usuario.png}" alt="User">
+                <div class="col-lg-9">
+                    <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
+                        <a href="index.html" class="navbar-brand d-block d-lg-none">
+                            <h1 class="m-0 text-primary text-uppercase">Hotelier</h1>
+                        </a>
+                        <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
+                            data-bs-target="#navbarCollapse">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                            <div class="navbar-nav mr-auto py-0">
+                                <a th:href="@{/}" class="nav-item nav-link">Bienvenido</a>
+                                <a th:href="@{/about}" class="nav-item nav-link active">Información</a>
+                                <a th:href="@{/service}" class="nav-item nav-link">Servicio</a>
+                                <a th:href="@{/room}" class="nav-item nav-link">Habitaciones</a>
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Opciones</a>
+                                    <div class="dropdown-menu rounded-0 m-0">
+                                        <a th:href="@{/reservas}" class="dropdown-item">Reservas</a>
+                                        <a th:href="@{/equipo}" class="dropdown-item">Personal</a>
+                                        <a th:href="@{/reseñas}" class="dropdown-item">Reseñas</a>
+                                    </div>
+                                </div>
+                                <a th:href="@{/contact}" class="nav-item nav-link">Contactanos</a>
+                            </div>
+                            <a th:href="@{/login}"
+                                class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Registrate con
+                                nosotros<i class="fa fa-arrow-right ms-3"></i></a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+
+
+        <!-- Carousel Start -->
+        <div class="container-fluid p-0 mb-5">
+            <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="w-100" src="assets/img/carousel-1.jpg" alt="Image">
+                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                            <div class="p-3" style="max-width: 700px;">
+                                <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Hospedaje
+                                    Ica</h6>
+                                <h1 class="display-3 text-white mb-4 animated slideInDown">La mejor comodidad</h1>
+                                <a th:href="@{/room}"
+                                    class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Nuestra
+                                    habitación</a>
+                                <a th:href="@{/booking}"
+                                    class="btn btn-light py-md-3 px-md-5 animated slideInRight">Reserva una
+                                    habitación</a>
+                            </div>
+                        </div>
                     </div>
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100 carousel-image" th:src="@{/assets/img/carrusel0.jpg}" alt="First slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100 carousel-image" th:src="@{/assets/img/carrusel1.jpg}" alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100 carousel-image" th:src="@{/assets/img/habitacion3.jpg}" alt="Third slide">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-        <h1 class="welcome-text">¡Bienvenido a Hospedaje Ica!</h1>
-
-        <section class="services">
-            <h2>Nuestros Servicios</h2>
-            <div class="services-container">
-                <div class="service-item">
-                    <img th:src="@{/assets/img/ubicacion.png}" alt="Ubicación">
-                    <p>Ubicación adecuada</p>
-                </div>
-                <div class="service-item">
-                    <img th:src="@{/assets/img/servicio.png}" alt="Servicio a la habitación">
-                    <p>Servicio a la habitación</p>
-                </div>
-                <div class="service-item">
-                    <img th:src="@{/assets/img/24h.png}" alt="Recepción 24h">
-                    <p>Recepción 24h</p>
-                </div>
-                <div class="service-item">
-                    <img th:src="@{/assets/img/wifi.png}" alt="Wifi">
-                    <p>Wifi</p>
-                </div>
-                <div class="service-item">
-                    <img th:src="@{/assets/img/venta.png}" alt="Venta de alimentos y bebidas">
-                    <p>Venta de alimentos y bebidas</p>
-                </div>
-                <div class="service-item">
-                    <img th:src="@{/assets/img/comodidad.png}" alt="Comodidad y tranquilidad">
-                    <p>Comodidad y tranquilidad</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Why Stay Section -->
-        <section class="why-stay">
-            <h2>¿Por qué hospedarse en Hospedaje Ica?</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section class="testimonials">
-            <h2>Testimonios</h2>
-            <div class="testimonials-container">
-                <div class="testimonial">
-                    <p>"El mejor lugar para descansar en Ica, excelente servicio y comodidades."</p>
-                </div>
-                <div class="testimonial">
-                    <p>"Una experiencia inolvidable, el personal es muy amable y atento."</p>
-                </div>
-                <div class="testimonial">
-                    <p>"Recomiendo totalmente este hospedaje, me sentí como en casa."</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Rooms Section -->
-        <section class="rooms">
-            <h2>Nuestras Habitaciones</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a th:href="@{/habitaciones}" class="btn btn-primary">Ver Todos</a>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-column">
-                <h3>Contacto</h3>
-                <ul>
-                    <li><a href="tel:+51 937172265">+51 937 172 265</a></li>
-                    <li><a href="mailto:hospedajeica@gmail.com">hospedajeica@gmail.com</a></li>
-                    <li><a href="https://maps.app.goo.gl/twUyCbPvZ8bVpDnNA" target="_blank">Sebastian Barranca 486, Ica 11002, Perú</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Hospedaje Ica</h3>
-                <ul>
-                    <li><a th:href="@{/informacion}">Información</a></li>
-                    <li><a th:href="@{/habitaciones}">Habitaciones</a></li>
-                    <li><a th:href="@{/galeria}">Galería</a></li>
-                    <li><a th:href="@{/blog}">Blog</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Ubicación</h3>
-                <div class="mapouter">
-                    <div class="gmap_canvas">
-                        <iframe width="322" height="280" id="gmap_canvas" src="https://maps.google.com/maps?q=Hospedaje+Ica%2C+sebastian+barranca&t=&z=16&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                    <div class="carousel-item">
+                        <img class="w-100" src="assets/img/carousel-2.jpg" alt="Image">
+                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                            <div class="p-3" style="max-width: 700px;">
+                                <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Publicidad
+                                </h6>
+                                <h1 class="display-3 text-white mb-4 animated slideInDown">Previa a contrato</h1>
+                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">pagina</a>
+                                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">red social</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="w-100" src="assets/img/carousel-3.jpg" alt="Image">
+                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                            <div class="p-3" style="max-width: 700px;">
+                                <h6 class="section-title text-white text-uppercase mb-3 animated slideInDown">Publicidad
+                                </h6>
+                                <h1 class="display-3 text-white mb-4 animated slideInDown">Previa a contrato</h1>
+                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">pagina</a>
+                                <a href="" class="btn btn-light py-md-3 px-md-5 animated slideInRight">red social</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
-        <p>Todos los derechos reservados &copy; 2024 Hospedaje Ica, desarrollado por el equipo de administración</p>
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- Carousel End -->
+
+
+        <!-- Booking Start -->
+        <div class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container">
+                <div class="bg-white shadow" style="padding: 35px;">
+                    <div class="row g-2">
+                        <div class="col-md-10">
+                            <div class="row g-2">
+                                <div class="col-md-3">
+                                    <div class="date" id="date1" data-target-input="nearest">
+                                        <input type="text" class="form-control datetimepicker-input"
+                                            placeholder="Fecha entrada" data-target="#date1"
+                                            data-toggle="datetimepicker" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="date" id="date2" data-target-input="nearest">
+                                        <input type="text" class="form-control datetimepicker-input"
+                                            placeholder="Fecha salida" data-target="#date2"
+                                            data-toggle="datetimepicker" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="form-select">
+                                        <option selected>Días</option>
+                                        <option value="1"> 1 </option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="form-select">
+                                        <option selected>Habitación</option>
+                                        <option value="1">Individual</option>
+                                        <option value="2">Doble</option>
+                                        <option value="3">Matrimonial</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-primary w-100">Reservar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Booking End -->
+
+
+        <!-- About Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <h6 class="section-title text-start text-primary text-uppercase">Información</h6>
+                        <h1 class="mb-4">Bienvenido al <span class="text-primary text-uppercase">Hospedaje Ica</span>
+                        </h1>
+                        <p class="mb-4">¡Bienvenido a nuestro hotel! Nos alegra recibirlo y estamos comprometidos a
+                            hacer de su estancia una experiencia cómoda y agradable. Nuestro personal está a su
+                            disposición para asistirlo en lo que necesite. Esperamos que disfrute de su estancia con
+                            nosotros. ¡Que tenga una estancia maravillosa!</p>
+                        <div class="row g-3 pb-4">
+                            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.1s">
+                                <div class="border rounded p-1">
+                                    <div class="border rounded text-center p-4">
+                                        <i class="fa fa-hotel fa-2x text-primary mb-2"></i>
+
+                                        <p class="mb-0">Habitaciones</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.3s">
+                                <div class="border rounded p-1">
+                                    <div class="border rounded text-center p-4">
+                                        <i class="fa fa-users-cog fa-2x text-primary mb-2"></i>
+
+                                        <p class="mb-0">Personal</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.5s">
+                                <div class="border rounded p-1">
+                                    <div class="border rounded text-center p-4">
+                                        <i class="fa fa-users fa-2x text-primary mb-2"></i>
+
+                                        <p class="mb-0">Clientes</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="btn btn-primary py-3 px-5 mt-2" href="room.html">Habitaciones</a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row g-3">
+                            <div class="col-6 text-end">
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s"
+                                    src="assets/img/WhatsApp Image 2024-05-26 at 2.03.26 PM.jpeg"
+                                    style="margin-top: 25%;">
+                            </div>
+                            <div class="col-6 text-start">
+                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s"
+                                    src="assets/img/WhatsApp Image 2024-05-26 at 2.03.27 PM.jpeg">
+                            </div>
+                            <div class="col-6 text-end">
+                                <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s"
+                                    src="assets/img/300459329_386836063609786_43379943828580812_n.jpg">
+                            </div>
+                            <div class="col-6 text-start">
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s"
+                                    src="assets/img/157a066a-lm-125246-17b1b4af431.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+
+        <!-- Room Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h6 class="section-title text-center text-primary text-uppercase">Todas las habitaciones</h6>
+                    <h1 class="mb-5">Explora nuestras <span class="text-primary text-uppercase">Habitaciones</span></h1>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="room-item shadow rounded overflow-hidden">
+                            <div class="position-relative">
+                                <img class="img-fluid" src="assets/img/room-1.jpg" alt="">
+                                <small
+                                    class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">S/.60
+                                    /Noche</small>
+                            </div>
+                            <div class="p-4 mt-2">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <h5 class="mb-0"> Individual</h5>
+                                    <div class="ps-2">
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                    </div>
+                                </div>
+                                <div class="d-flex mb-3">
+                                    <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>1
+                                        camas</small>
+                                    <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>1
+                                        baño</small>
+                                    <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
+                                </div>
+                                <p class="text-body mb-3">Habitacion propia, cuenta con baño propio, ademas de internet
+                                    en alta velocidad</p>
+                                <div class="d-flex justify-content-between">
+
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" th:href="@{/booking}">Reservar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="room-item shadow rounded overflow-hidden">
+                            <div class="position-relative">
+                                <img class="img-fluid" src="assets/img/room-2.jpg" alt="">
+                                <small
+                                    class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">S/.80
+                                    /Noche</small>
+                            </div>
+                            <div class="p-4 mt-2">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <h5 class="mb-0">Doble</h5>
+                                    <div class="ps-2">
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                    </div>
+                                </div>
+                                <div class="d-flex mb-3">
+                                    <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>2
+                                        cama</small>
+                                    <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>1
+                                        Baño</small>
+                                    <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
+                                </div>
+                                <p class="text-body mb-3">Habitación con 2 camas, con mayor comodidad, ademas de contar
+                                    con internet.</p>
+                                <div class="d-flex justify-content-between">
+
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="booking.html">Reservar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="room-item shadow rounded overflow-hidden">
+                            <div class="position-relative">
+                                <img class="img-fluid" src="assets/img/room-3.jpg" alt="">
+                                <small
+                                    class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">S/.120/Noche</small>
+                            </div>
+                            <div class="p-4 mt-2">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <h5 class="mb-0">Matrimonial</h5>
+                                    <div class="ps-2">
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                    </div>
+                                </div>
+                                <div class="d-flex mb-3">
+                                    <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>1
+                                        Bed</small>
+                                    <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>1
+                                        Bath</small>
+                                    <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
+                                </div>
+                                <p class="text-body mb-3">Cuenta con una cama de gran tamaño, ademas de baño con sauna,
+                                    entre otras comodidas.</p>
+                                <div class="d-flex justify-content-between">
+
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="booking.html">Reservar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Room End -->
+
+
+
+
+        <!-- Service Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h6 class="section-title text-center text-primary text-uppercase">Nuestros servicios</h6>
+                    <h1 class="mb-5">Explora nuestros <span class="text-primary text-uppercase">servicios</span></h1>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="service-item rounded" href="room.html">
+                            <div class="service-icon bg-transparent border rounded p-1">
+                                <div
+                                    class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
+                                    <i class="fa fa-hotel fa-2x text-primary"></i>
+                                </div>
+                            </div>
+                            <h5 class="mb-3">Habitaciones</h5>
+                            <p class="text-body mb-0">Habitaciones de acuerdo a la exigencia de cada cliente.</p>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <a class="service-item rounded" href="testimonial.html">
+                            <div class="service-icon bg-transparent border rounded p-1">
+                                <div
+                                    class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
+                                    <i class="fa fa-utensils fa-2x text-primary"></i>
+                                </div>
+                            </div>
+                            <h5 class="mb-3">Reseñas</h5>
+                            <p class="text-body mb-0">Contamos con un menú de reseñas,en donde cada cliente puede dejar
+                                su experiencia</p>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <a class="service-item rounded" href="team.html">
+                            <div class="service-icon bg-transparent border rounded p-1">
+                                <div
+                                    class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
+                                    <i class="fa fa-spa fa-2x text-primary"></i>
+                                </div>
+                            </div>
+                            <h5 class="mb-3">Experiencia Personalizada</h5>
+                            <p class="text-body mb-0">Nuestro personal esta capacitado en brindar una experiencia
+                                personalidad a cada cliente.</p>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Service End -->
+
+
+        <!-- Testimonial Start -->
+        <div class="container-xxl testimonial my-5 py-5 bg-dark wow zoomIn" data-wow-delay="0.1s">
+            <div class="container">
+                <div class="owl-carousel testimonial-carousel py-5">
+                    <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta cumque temporibus id atque
+                            mollitia. Ea cupiditate facere ab libero labore.</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded" src="assets/img/testimonial-1.jpg"
+                                style="width: 45px; height: 45px;">
+                            <div class="ps-3">
+                                <h6 class="fw-bold mb-1">Cliente</h6>
+                                <small>Profesión</small>
+                            </div>
+                        </div>
+                        <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
+                    </div>
+                    <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In voluptatum iusto corrupti hic
+                            vitae fugiat maxime pariatur dolores asperiores voluptate.</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded" src="assets/img/testimonial-2.jpg"
+                                style="width: 45px; height: 45px;">
+                            <div class="ps-3">
+                                <h6 class="fw-bold mb-1">Cliente</h6>
+                                <small>Profesión</small>
+                            </div>
+                        </div>
+                        <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
+                    </div>
+                    <div class="testimonial-item position-relative bg-white rounded overflow-hidden">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error optio officia minima quibusdam
+                            provident eum ducimus, aperiam ex voluptatem nam.</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid flex-shrink-0 rounded" src="assets/img/testimonial-3.jpg"
+                                style="width: 45px; height: 45px;">
+                            <div class="ps-3">
+                                <h6 class="fw-bold mb-1">Cliente</h6>
+                                <small>Profesión</small>
+                            </div>
+                        </div>
+                        <i class="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonial End -->
+
+
+        <!-- Team Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h6 class="section-title text-center text-primary text-uppercase">Equipo</h6>
+                    <h1 class="mb-5">Nuestro <span class="text-primary text-uppercase">Personal</span></h1>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="rounded shadow overflow-hidden">
+                            <div class="position-relative">
+                                <img class="img-fluid" src="assets/img/dayana.jpg" alt="">
+                                <div
+                                    class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
+                                    <a class="btn btn-square btn-primary mx-1"
+                                        href="https://www.facebook.com/Dayana.Levano1804"><i
+                                            class="fab fa-facebook-f"></i></a>
+
+                                    <a class="btn btn-square btn-primary mx-1"
+                                        href="https://www.instagram.com/nitada18/?hl=es-la"><i
+                                            class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                            <div class="text-center p-4 mt-3">
+                                <h5 class="fw-bold mb-0">Dayana Giraldo</h5>
+                                <small>Jefa</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="rounded shadow overflow-hidden">
+                            <div class="position-relative">
+                                <img class="img-fluid" src="assets/img/team-2.jpg" alt="">
+                                <div
+                                    class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i
+                                            class="fab fa-facebook-f"></i></a>
+
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i
+                                            class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                            <div class="text-center p-4 mt-3">
+                                <h5 class="fw-bold mb-0">Nombre</h5>
+                                <small>Ocupación</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="rounded shadow overflow-hidden">
+                            <div class="position-relative">
+                                <img class="img-fluid" src="assets/img/team-3.jpg" alt="">
+                                <div
+                                    class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i
+                                            class="fab fa-facebook-f"></i></a>
+
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i
+                                            class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                            <div class="text-center p-4 mt-3">
+                                <h5 class="fw-bold mb-0">Nombre</h5>
+                                <small>Ocupación</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="rounded shadow overflow-hidden">
+                            <div class="position-relative">
+                                <img class="img-fluid" src="assets/img/team-4.jpg" alt="">
+                                <div
+                                    class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i
+                                            class="fab fa-facebook-f"></i></a>
+
+                                    <a class="btn btn-square btn-primary mx-1" href=""><i
+                                            class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                            <div class="text-center p-4 mt-3">
+                                <h5 class="fw-bold mb-0">Nombre</h5>
+                                <small>Ocupación</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Team End -->
+
+
+        <!-- Newsletter Start -->
+        <div class="container newsletter mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 border rounded p-1">
+                    <div class="border rounded text-center p-1">
+                        <div class="bg-white rounded text-center p-5">
+                            <h4 class="mb-4">Suscribete a <span class="text-primary text-uppercase">Hospedeja Ica</span>
+                            </h4>
+                            <div class="position-relative mx-auto" style="max-width: 400px;">
+                                <input class="form-control w-100 py-3 ps-4 pe-5" type="text"
+                                    placeholder="Ingrese su email">
+                                <button type="button"
+                                    class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">Enviar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Newsletter Start -->
+
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-light footer wow fadeIn" data-wow-delay="0.1s">
+            <div class="container pb-5">
+                <div class="row g-5">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="bg-primary rounded p-4">
+                            <a href="index.html">
+                                <h1 class="text-white text-uppercase mb-3">Hospedeja Ica</h1>
+                            </a>
+                            <p class="text-white mb-0">
+                                Hospedaje <a class="text-dark fw-medium">Ica – La mejor comodidad</a>, Nos alegra
+                                recibirlo y estamos comprometidos a hacer de su estancia una experiencia cómoda y
+                                agradable. Nuestro personal está a su disposición para asistirlo en lo que necesite.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <h6 class="section-title text-start text-primary text-uppercase mb-4">Contactanos</h6>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Calle Sebastián Barranca 486 Urb. San
+                            Miguel 056 Ica, Perú</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>(056) 328529</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>hospedajeica@hotmail.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social"
+                                href="https://www.facebook.com/hospedajeicaperu"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-12">
+                        <div class="row gy-5 g-4">
+                            <div class="col-md-6">
+                                <h6 class="section-title text-start text-primary text-uppercase mb-4">Compañia</h6>
+                                <a class="btn btn-link" href="index.html">Inicio</a>
+                                <a class="btn btn-link" href="contact.html">Contactanos</a>
+                                <a class="btn btn-link" href="">Politica de privacidad</a>
+                                <a class="btn btn-link" href="">Terminos y condiciones</a>
+                                <a class="btn btn-link" href="">Soporte</a>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="section-title text-start text-primary text-uppercase mb-4">Servicios</h6>
+                                <a class="btn btn-link" href="room.html">Reserva de Habitación</a>
+                                <a class="btn btn-link" href="team.html">Experiencia personalizada</a>
+                                <a class="btn btn-link" href="testimonial.html">Reseñas</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+        </div>
+        <!-- Footer End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/lib/wow/wow.min.js"></script>
+    <script src="assets/lib/easing/easing.min.js"></script>
+    <script src="assets/lib/waypoints/waypoints.min.js"></script>
+    <script src="assets/lib/counterup/counterup.min.js"></script>
+    <script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="assets/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="assets/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="assets/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="assets/js/main.js"></script>
 </body>
+
 </html>

@@ -91,6 +91,20 @@ public class HabitacionDaoImpl implements ServicioGenerico<Habitacion> {
             throw new Exception(e.getMessage());
         }
     }
+
+    @Transactional
+    public List<Habitacion> findAllByActivoAndDisponibilidad() throws Exception {
+        try {
+            List<Habitacion> entities = this.habitacionRepositorio.findAllByActivoAndDisponibilidad();
+            return entities;
+        }catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+
+
+
     @Transactional
     public Habitacion findByIdAndActivo(long id) throws Exception {
         try {
